@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="CSS/all.min.css" />
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <title>Login</title>
+  </head>
+  <body class="d-flex justify-content-center align-items-center vh-100">
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="login text-white p-5 rounded-5">
+              <h1>Smart Login System</h1>
+              <div class="mb-3">
+                <label for="email-input" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="login-email-input"
+                  placeholder="Enter your E-mail"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="pass-input" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="login-pass-input"
+                  placeholder="Enter your Password"
+                />
+              </div>
+              <div class="login-error mb-3 text-danger fs-5 text-center"></div>
+              <button
+                class="btn logInButton btn-outline-secondary text-white mb-3"
+              >
+                LogIn
+              </button>
+              <p class="mb-0">
+                Don't have an account?
+                <a href="" class="signup-link fw-bold text-secondary">SignUp</a>
+              </p>
+            </div>
+            <div class="signup d-none text-white p-5 rounded-5">
+              <h1>Smart Login System</h1>
+              <div class="mb-3">
+                <label for="name-input" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="signup-name-input"
+                  placeholder="Enter your Name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email-input" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="signup-email-input"
+                  placeholder="Enter your E-mail"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="pass-input" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="signup-pass-input"
+                  placeholder="Enter your Password"
+                />
+              </div>
+              <div class="signup-error mb-3 text-danger fs-5 text-center"></div>
+              <button
+                class="btn signUpButton btn-outline-secondary text-white mb-3"
+              >
+                SignUp
+              </button>
+              <p class="mb-0">
+                Have an account?
+                <a href="" class="login-link fw-bold text-secondary">LogIn</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script src="JS/script.js"></script>
+  </body>
+</html>

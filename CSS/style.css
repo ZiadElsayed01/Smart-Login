@@ -1,0 +1,16 @@
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../Images/Landing.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.login,
+.signup,
+.box {
+  box-shadow: rgb(0 0 0 / 100%) 0px 0px 40px 25px;
+}
+
+.box {
+  width: fit-content;
+}
