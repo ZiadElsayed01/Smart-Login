@@ -6,4 +6,4 @@ logOutBtn.addEventListener("click", function (event) {
 
 var homeHeading = document.querySelector(".home-heading");
 var currentUser = JSON.parse(localStorage.getItem("currentUser"));
-homeHeading.innerHTML = `" ${currentUser} "`;
+homeHeading.innerHTML = `${currentUser}`;
