@@ -5,8 +5,5 @@ logOutBtn.addEventListener("click", function (event) {
 });
 
 var homeHeading = document.querySelector(".home-heading");
-var userName = JSON.parse(localStorage.getItem("Users"));
-console.log(userName);
-for (var i = 0; i < userName.length; i++) {
-  homeHeading.innerHTML = `Hello ${userName[i].name}`;
-}
+var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+homeHeading.innerHTML = `" ${currentUser} "`;

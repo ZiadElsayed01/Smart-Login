@@ -4,13 +4,60 @@ body {
   background-size: cover;
   background-position: center;
 }
-
-.login,
-.signup,
-.box {
-  box-shadow: rgb(0 0 0 / 100%) 0px 0px 40px 25px;
+h1,
+.home-heading {
+  font-family: "Pacifico", cursive;
+  color: white;
 }
-
+.row {
+  background-color: rgba(0, 0, 0, 0.45);
+}
 .box {
   width: fit-content;
+}
+.box,
+.row {
+  position: relative;
+  border-top: 3px solid #ec5d2c;
+  border-bottom: 3px solid #ec5d2c;
+}
+.box::after,
+.row::after {
+  content: "";
+  width: 3px;
+  height: 50%;
+  position: absolute;
+  background-color: #ec5d2c;
+  left: 0;
+  top: 0;
+}
+.box::before,
+.row::before {
+  content: "";
+  width: 3px;
+  height: 50%;
+  position: absolute;
+  background-color: #ec5d2c;
+  right: 0;
+  bottom: 0;
+}
+.form-control:focus {
+  border-color: #ec5d2c;
+  box-shadow: 0 0 0 0.2rem #ec5d2c;
+}
+button {
+  background-color: #ec5d2c;
+  color: white;
+  border: none;
+  padding: 5px 0;
+  border-radius: 8px;
+  font-size: 18px;
+  transition: all 0.4s ease;
+  border: 2px solid white;
+}
+button:hover {
+  background-color: #e94d1a;
+}
+a {
+  color: #ec5d2c;
 }

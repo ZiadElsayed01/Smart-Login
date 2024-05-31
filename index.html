@@ -3,18 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
     <!-- CSS Files -->
     <link rel="stylesheet" href="CSS/all.min.css" />
     <link rel="stylesheet" href="CSS/bootstrap.min.css" />
     <link rel="stylesheet" href="CSS/style.css" />
-    <title>Login</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="d-flex justify-content-center align-items-center vh-100">
     <main>
       <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <div class="login text-white p-5 rounded-5">
+          <div class="col-md-12 text-white p-0">
+            <div class="login p-5">
               <h1>Smart Login System</h1>
               <div class="mb-3">
                 <label for="email-input" class="form-label">Email</label>
@@ -35,17 +42,13 @@
                 />
               </div>
               <div class="login-error mb-3 text-danger fs-5 text-center"></div>
-              <button
-                class="btn logInButton btn-outline-secondary text-white mb-3"
-              >
-                LogIn
-              </button>
+              <button class="logInButton mb-3 w-25">LogIn</button>
               <p class="mb-0">
                 Don't have an account?
-                <a href="" class="signup-link fw-bold text-secondary">SignUp</a>
+                <a href="" class="signup-link fw-bold">SignUp</a>
               </p>
             </div>
-            <div class="signup d-none text-white p-5 rounded-5">
+            <div class="signup d-none p-5">
               <h1>Smart Login System</h1>
               <div class="mb-3">
                 <label for="name-input" class="form-label">Name</label>
@@ -75,14 +78,10 @@
                 />
               </div>
               <div class="signup-error mb-3 text-danger fs-5 text-center"></div>
-              <button
-                class="btn signUpButton btn-outline-secondary text-white mb-3"
-              >
-                SignUp
-              </button>
+              <button class="signUpButton mb-3 w-25">SignUp</button>
               <p class="mb-0">
                 Have an account?
-                <a href="" class="login-link fw-bold text-secondary">LogIn</a>
+                <a href="" class="login-link fw-bold">LogIn</a>
               </p>
             </div>
           </div>
@@ -91,5 +90,6 @@
     </main>
     <script src="JS/bootstrap.bundle.min.js"></script>
     <script src="JS/script.js"></script>
+    <script src="JS/home.js"></script>
   </body>
 </html>

@@ -1,5 +1,4 @@
 // Index Page
-
 // Forms :
 var logIn = document.querySelector(".login");
 var signUp = document.querySelector(".signup");
@@ -31,7 +30,11 @@ logInLink.addEventListener("click", function (event) {
   event.preventDefault();
   showLogin();
   signUpError.innerHTML = "";
+  signUpNameInput.classList.remove("is-invalid", "is-valid");
+  signUpEmailInput.classList.remove("is-invalid", "is-valid");
+  signUpPassInput.classList.remove("is-invalid", "is-valid");
 });
+
 function showSignup() {
   logIn.classList.remove("d-block");
   logIn.classList.add("d-none");
@@ -42,13 +45,14 @@ signUpLink.addEventListener("click", function (event) {
   event.preventDefault();
   showSignup();
   logInError.innerHTML = "";
+  logInEmailInput.classList.remove("is-invalid", "is-valid");
+  logInPassInput.classList.remove("is-invalid", "is-valid");
 });
-signUpButton.addEventListener("click", function (event) {
-  event.preventDefault();
+
+signUpButton.addEventListener("click", function () {
   signUpValidation();
 });
-logInButton.addEventListener("click", function (event) {
-  event.preventDefault();
+logInButton.addEventListener("click", function () {
   logInValidation();
 });
 
@@ -60,44 +64,71 @@ if (localStorage.getItem("Users") == null) {
 }
 
 function logInValidation() {
+  logInEmailInput.classList.remove("is-invalid", "is-valid");
+  logInPassInput.classList.remove("is-invalid", "is-valid");
+  logInError.innerHTML = "";
+
   if (logInEmailInput.value == "" || logInPassInput.value == "") {
     logInError.innerHTML = "All Inputs Required";
     logInEmailInput.classList.add("is-invalid");
     logInPassInput.classList.add("is-invalid");
-  } else {
-    for (var i = 0; i < userArr.length; i++) {
-      if (
-        userArr[i].email.toLowerCase() == logInEmailInput.value.toLowerCase() &&
-        userArr[i].pass == logInPassInput.value
-      ) {
-        window.location.href = "home.html";
-        logInEmailInput.classList.add("is-valid");
-        logInPassInput.classList.add("is-valid");
-      }
+  }
+
+  var validUser = false;
+  for (var i = 0; i < userArr.length; i++) {
+    if (
+      userArr[i].email.toLowerCase() == logInEmailInput.value.toLowerCase() &&
+      userArr[i].pass == logInPassInput.value
+    ) {
+      localStorage.setItem("currentUser", JSON.stringify(userArr[i].name));
+      logInEmailInput.classList.add("is-valid");
+      logInPassInput.classList.add("is-valid");
+      window.location.href = "home.html";
+      validUser = true;
+      break;
     }
+  }
+
+  if (!validUser) {
     logInError.innerHTML = "Invalid Email or Password";
+    logInEmailInput.classList.add("is-invalid");
+    logInPassInput.classList.add("is-invalid");
   }
 }
 
 function signUpValidation() {
+  signUpNameInput.classList.remove("is-invalid", "is-valid");
+  signUpEmailInput.classList.remove("is-invalid", "is-valid");
+  signUpPassInput.classList.remove("is-invalid", "is-valid");
+  signUpError.innerHTML = "";
+
+  var error = false;
   if (
     signUpNameInput.value == "" ||
     signUpEmailInput.value == "" ||
     signUpPassInput.value == ""
   ) {
     signUpError.innerHTML = "All Inputs Required";
-    return;
-  } else {
-    for (var i = 0; i < userArr.length; i++) {
-      if (
-        userArr[i].email.toLowerCase() == signUpEmailInput.value.toLowerCase()
-      ) {
-        signUpError.innerHTML = "Email Already Exist";
-        return;
-      }
+    signUpNameInput.classList.add("is-invalid");
+    signUpEmailInput.classList.add("is-invalid");
+    signUpPassInput.classList.add("is-invalid");
+    error = true;
+  }
+
+  for (var i = 0; i < userArr.length; i++) {
+    if (
+      userArr[i].email.toLowerCase() == signUpEmailInput.value.toLowerCase()
+    ) {
+      signUpError.innerHTML = "Email Already Exist";
+      signUpEmailInput.classList.add("is-invalid");
+      error = true;
+      break;
     }
   }
-  addUser();
+
+  if (!error) {
+    addUser();
+  }
 }
 
 function addUser() {
@@ -112,6 +143,9 @@ function addUser() {
   signUpError.classList.add("text-success");
   signUpError.innerHTML = "Success";
   clear();
+  setTimeout(function () {
+    location.reload();
+  }, 1000);
 }
 
 function clear() {
